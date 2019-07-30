@@ -15,11 +15,9 @@ import java.lang.reflect.Proxy;
  * Function: JDK 代理单测
  *
  * @author crossoverJie
- *         Date: 23/12/2017 22:40
  * @since JDK 1.8
  */
 public class JDKProxyTest {
-
     @Test
     public void test(){
         CustomizeHandle handle = new CustomizeHandle(ISubjectImpl.class) ;
