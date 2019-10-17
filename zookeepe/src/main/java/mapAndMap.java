@@ -34,8 +34,30 @@ public class mapAndMap {
             }
             mapOut.put(key,mpIn);
         }
-        System.out.println(mapOut.get("2"));
-        System.out.println(mapOut.get("2").get("e"));
+
+        LinkedHashMap<Object, Object> mapL=new LinkedHashMap<Object, Object>();
+        Person p=new Person();
+        p.setId(111);
+        //mapL.put(1,p);
+       // mapL.put(3,4);
+        String jsonStringL = JSON.toJSONString(mapL);
+
+        JSONObject jsonObjectL=JSONObject.parseObject(jsonStringL);
+        Map<String,Object> mL=(Map<String,Object>)jsonObjectL;
+        String str=JSONObject.toJSONString(mL.get("1"));
+        for(Object obj : mL.values()){
+            //---------重点 即使转了Object但实际上还是JSON对象，需要再转一下
+            String str1=JSON.toJSONString(obj);
+            Person o=JSON.parseObject(str1,Person.class);
+            System.out.println(o.getId()+"--------");
+
+        }
+        for (String key: mL.keySet()){
+            String str1=JSON.toJSONString(mL.get(key));
+            Person o=JSON.parseObject(str1,Person.class);
+            System.out.println(o.getId()+"--------");
+
+        }
     }
 
     /**

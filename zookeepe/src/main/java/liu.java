@@ -14,8 +14,8 @@ public class liu {
         Map<String,Object> mp = (Map<String,Object>)jsonObject;
         Map<String,String> map1=new HashMap<String, String>();
         for (String key : mp.keySet()) {
-            String str1 = JSON.toJSONString(mp.get(key));
-            String value = JSON.parseObject(str1, String.class);
+            String str1 = JSONObject.toJSONString(mp.get(key));
+            String value = JSONObject.parseObject(str1, String.class);
             map1.put(key,value);
         }
         if (mp.get("a") instanceof Object){
