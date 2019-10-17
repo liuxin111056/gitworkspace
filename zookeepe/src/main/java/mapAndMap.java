@@ -2,6 +2,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class mapAndMap {
@@ -34,5 +36,25 @@ public class mapAndMap {
         }
         System.out.println(mapOut.get("2"));
         System.out.println(mapOut.get("2").get("e"));
+    }
+
+    /**
+     * 将Map转换为LinkedHashMap
+     * @param dataMap
+     * @return
+     */
+    public static LinkedHashMap getMapValueForLinkedHashMap(Map dataMap) {
+        LinkedHashMap returnMap = new LinkedHashMap();
+        Iterator iterator = dataMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            Object objKey = iterator.next();
+            Object objValue = dataMap.get(objKey);
+            if (objValue instanceof Map) {
+                returnMap.put(objKey, getMapValueForLinkedHashMap((Map) objValue));
+            } else {
+                returnMap.put(objKey, objValue);
+            }
+        }
+        return returnMap;
     }
 }
