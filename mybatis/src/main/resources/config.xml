@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <!-- 配置文件的根元素 -->
+ <configuration>
+    <!-- 环境：配置mybatis的环境 -->
+    <environments default="development">
+         <!-- 环境变量：可以配置多个环境变量，比如使用多数据源时，就需要配置多个环境变量 -->  
+         <environment id="development">
+             <!-- 事务管理器 --> 
+             <transactionManager type="JDBC" />
+             <!-- 数据源        配置数据库连接信息 -->
+             <dataSource type="POOLED">
+                 <property name="driver" value="com.mysql.jdbc.Driver" />
+                 <property name="url" value="jdbc:mysql://localhost:3306/mysql" />
+                 <property name="username" value="root" />
+                 <property name="password" value="111056" />
+             </dataSource>
+         </environment>
+     </environments>
+      <!-- 映射器：指定映射文件或者映射类 -->  
+     <mappers>
+     <!-- 
+     	注册User.xml文件， user.xml位于com.jsx.mapping这个包下，所以resource如下
+        UserMapper 是一个接口,这个接口里面定义的方法的名字(name)和UserMapper.xml里面的id一样 
+        UserMapper 接口里面方法返回类型要和UserMapper.xml里resultSetMap是一个类型.
+		UserMapper这个接口的作用就是要你写一个Java类 类对应你的xml文件.方便调用.  -->
+        <mapper resource="mapping/UserMapper.xml"/>
+
+     </mappers>
+</configuration>
