@@ -13,7 +13,11 @@
      -->
      <!--  根据id查询得到一个user对象-->
      <select id="getUser"    parameterType="int"     resultType="model.User">
-         select * from user where id=#{id}
+         select * from tb_user where id=#{id}
+    </select>
+
+    <select id="getUserByName"    parameterType="String"     resultType="model.User">
+         select * from tb_user where user_name=#{user_name,jdbcType=VARCHAR }
     </select>
     
  </mapper>

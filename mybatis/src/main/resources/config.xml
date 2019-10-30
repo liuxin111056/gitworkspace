@@ -25,6 +25,5 @@
         UserMapper 接口里面方法返回类型要和UserMapper.xml里resultSetMap是一个类型.
 		UserMapper这个接口的作用就是要你写一个Java类 类对应你的xml文件.方便调用.  -->
         <mapper resource="mapping/UserMapper.xml"/>
-
      </mappers>
 </configuration>

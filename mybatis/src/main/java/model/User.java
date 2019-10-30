@@ -2,18 +2,18 @@ package model;
 
 public class User {
 	private int id;
-	private String username;
+	private String user_name;
 	private String password;
 	
 	//添加构造函数时必须添加空构造，不然会报invalid types() or values()异常
 	public User() {}
 	public User(String username, String password) {
-		this.username = username;
+		this.user_name = username;
 		this.password = password;
 	}
 	public User(int id, String username, String password) {
 		this.id = id;
-		this.username = username;
+		this.user_name = username;
 		this.password = password;
 	}
 
@@ -25,10 +25,10 @@ public class User {
 		this.id = id;
 	}
 	public String getUsername() {
-		return username;
+		return user_name;
 	}
 	public void setUsername(String username) {
-		this.username = username;
+		this.user_name = username;
 	}
 	public String getPassword() {
 		return password;
@@ -37,7 +37,7 @@ public class User {
 		this.password = password;
 	}
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password="+ password + "]";
+		return "User [id=" + id + ", username=" + user_name + ", password="+ password + "]";
 	}
 	
 }
